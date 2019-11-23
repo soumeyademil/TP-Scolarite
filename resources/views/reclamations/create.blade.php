@@ -8,7 +8,7 @@
         {{Form::textarea('body','',['class' => 'form-control', 'placeholder' => 'Votre reclamation..'])}}
         </div>
 {!! Form::close() !!}-->
-<form action="{{ route('reclamations.store') }}" method="POST">
+<form action="{{ route('reclamation.store') }}" method="POST">
 <div class="form-group">
         <input type="text" class="form-control" name="etud" placeholder="entrez votre matricule"><br>        
         <input type="text" class="form-control" name="gr" placeholder="entrez le groupe"><br>

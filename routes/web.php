@@ -13,8 +13,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/', 'ReclamController@index');
 
+Route::group([], function () {
+    Route::resource('reclamation', 'ReclamController');
+});
 
 Auth::routes();
-//Route::resource('reclamations', 'ReclamController');
 Route::get('/home', 'HomeController@index')->name('home');
