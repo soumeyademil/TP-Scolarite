@@ -10,12 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('welcome');
+});
 
-//Route::get('/', 'ReclamController@reclamer');
-/*Route::get('/', function () {
-    return view('reclamation');
-});*/
 
 Auth::routes();
+Route::resource('reclamations', 'ReclamController');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('reclamations', 'ReclamController@create')
