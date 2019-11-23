@@ -35,7 +35,26 @@ class ReclamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'MatrEtud' => 'required',
+            'GR' => 'required',
+            'CodeMod' => 'required',
+            'reclamation' => 'required'
+        ]);
+
+        /*variables provisoires*/
+        $matricule='17/012';
+        $GR=2;
+        $module="ALG1";
+        /*------------------*/
+        $reclamation = new Reclamations;
+        $reclamation->MatrEtud = $request->$matricule;
+        $reclamation->GR = $request->$GR;
+        $reclamation->CodeMod = $request->$module;
+        $reclamation->reclamation = $request->input('contenu');
+        $reclamation->save();
+
+        return redirect('/reclamations');
     }
 
     /**
