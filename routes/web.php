@@ -12,10 +12,10 @@
 */
 
 //Route::get('/', 'ReclamController@reclamer');
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('reclamation');
-});
+});*/
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('reclamations', 'ReclamController')
+Route::resource('reclamations', 'ReclamController@create')
