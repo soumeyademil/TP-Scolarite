@@ -42,15 +42,10 @@ class ReclamController extends Controller
             'reclamation' => 'required'
         ]);
 
-        /*variables provisoires*/
-        $matricule='17/012';
-        $GR=2;
-        $module="ALG1";
-        /*------------------*/
         $reclamation = new Reclamations;
-        $reclamation->MatrEtud = $request->$matricule;
-        $reclamation->GR = $request->$GR;
-        $reclamation->CodeMod = $request->$module;
+        $reclamation->MatrEtud = $request->input('etud');
+        $reclamation->GR = $request->input('gr');
+        $reclamation->CodeMod = $request->input('mod');
         $reclamation->reclamation = $request->input('contenu');
         $reclamation->save();
 
