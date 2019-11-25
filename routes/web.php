@@ -14,7 +14,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('localhost/TP-Scolarite/reclamations/create', 'ReclamController@create');
+Route::get('reclamations', 'ReclamController@index');
+Route::get('reclamations/create', 'ReclamController@create');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
