@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Reclamations;
+
 class ReclamController extends Controller
 {
     /**
@@ -14,7 +16,8 @@ class ReclamController extends Controller
      */
     public function index()
     {
-        //
+        $listreclam = Reclamations::all();
+        return view('reclamations.index', ['reclamation' => $listreclam]);
     }
 
     /**
@@ -35,21 +38,15 @@ class ReclamController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'MatrEtud' => 'required',
-            'GR' => 'required',
-            'CodeMod' => 'required',
-            'reclamation' => 'required'
-        ]);
-
-        $reclamation = new Reclamations;
+        $reclamation = new Reclamations();
         $reclamation->MatrEtud = $request->input('etud');
         $reclamation->GR = $request->input('gr');
         $reclamation->CodeMod = $request->input('mod');
         $reclamation->reclamation = $request->input('contenu');
+
         $reclamation->save();
 
-        return redirect('/reclamations');
+        return redirect('reclamations');
     }
 
     /**
