@@ -13,11 +13,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/', 'ReclamController@index');
 
-Route::group([], function () {
-    Route::resource('reclamation', 'ReclamController');
-});
+Route::get('localhost/TP-Scolarite/reclamations/create', 'ReclamController@create');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
