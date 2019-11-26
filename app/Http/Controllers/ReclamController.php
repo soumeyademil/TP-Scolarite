@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Reclamations;
-
 use App\Http\Requests\reclamRequest;
 class ReclamController extends Controller
 {
@@ -49,6 +47,7 @@ class ReclamController extends Controller
         $reclamation->GR = $request->input('gr');
         $reclamation->CodeMod = $request->input('mod');
         $reclamation->reclamation = $request->input('contenu');
+
 
         $reclamation->save();
 

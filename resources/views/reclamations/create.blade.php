@@ -8,10 +8,10 @@
 
                         {{ csrf_field() }}
 
-                                <!-- <div class="form-group">
+                                <div class="form-group">
                                         <label for=""></label>
                                         <input type="text" name="etud" class="form-control">
-                                </div> -->
+                                </div>
 
                                 <div class="form-group">
                                         <label for=""></label>
