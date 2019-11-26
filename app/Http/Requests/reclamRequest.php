@@ -13,7 +13,7 @@ class reclamRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class reclamRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'mod' => 'required|min:2',
+            'contenu' => 'required|min:10'
         ];
     }
 }
