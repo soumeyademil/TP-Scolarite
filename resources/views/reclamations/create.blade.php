@@ -1,6 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+
+<!-----------En cas d'erreurs------------->
+@if(count($errors))
+<div class="alert alert-danger" role="alert">
+ <ul class="">
+        @foreach($errors->all() as $message)
+        <li class="">{{ $message }}</li>
+        @endforeach
+ </ul>
+</div>
+@endif
+
+
 <div class="container">
         <div class="row">
                 <div class="col-md-12">
@@ -20,12 +33,12 @@
 
                                 <div class="form-group">
                                         <label for="">Module</label>
-                                        <input type="text" name="mod" class="form-control">
+                                        <input type="text" name="mod" class="form-control" value="{{ old('mod') }}">
                                 </div>
 
                                 <div class="form-group">
                                         <label for="">Contenu</label>
-                                        <textarea name="contenu" class="form-control"></textarea>
+                                        <textarea name="contenu" class="form-control">{{ old('contenu') }}</textarea>
                                 </div>
 
                                 <div class="form-group">

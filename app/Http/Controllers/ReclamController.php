@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Reclamations;
 
+use App\Http\Requests\reclamRequest;
 class ReclamController extends Controller
 {
     /**
@@ -14,6 +15,11 @@ class ReclamController extends Controller
      *   @returnIlluminate\Http\Response
      * 
      */
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
         $listreclam = Reclamations::all();
@@ -36,7 +42,7 @@ class ReclamController extends Controller
      * @paramIlluminate\Http\Request  $request
      * @returnIlluminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(reclamRequest $request)
     {
         $reclamation = new Reclamations();
         $reclamation->MatrEtud = $request->input('etud');
