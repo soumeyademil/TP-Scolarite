@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-12">
             <h1 class="">Mes reclamations</h1>
-            <div class="pull-right">
+            <div class="pull-center">
                 <a href="{{ url('reclamations/create') }}" class="btn btn-success">Nouvelle reclamation</a>
             </div>
 
