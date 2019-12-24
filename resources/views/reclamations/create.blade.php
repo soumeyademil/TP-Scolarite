@@ -25,7 +25,7 @@
 
                                 <div class="form-group">
                                         <label for=""></label>
-                                        <input type="text" name="contenu" class="form-control">
+                                        <textarea cols="50" rows="2" name="contenu" class="form-control"></textarea>
                                 </div>
 
                                 <div class="form-group">
