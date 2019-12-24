@@ -10,16 +10,6 @@
 
                                 <div class="form-group">
                                         <label for=""></label>
-                                        <input type="text" name="etud" class="form-control">
-                                </div>
-
-                                <div class="form-group">
-                                        <label for=""></label>
-                                        <input type="text" name="gr" class="form-control">
-                                </div>
-
-                                <div class="form-group">
-                                        <label for=""></label>
                                         <input type="text" name="mod" class="form-control">
                                 </div>
 

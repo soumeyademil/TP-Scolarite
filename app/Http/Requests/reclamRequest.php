@@ -22,10 +22,10 @@ class reclamRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {
-        return [
-            'mod'     => 'required|min:2',
-            'contenu' => 'required|min:10'
+    {       
+         return [
+
         ];
+
     }
 }

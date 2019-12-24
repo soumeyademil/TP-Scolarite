@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\Etudiant;
 use Illuminate\Http\Request;
 use App\Reclamations;
 use App\Http\Requests\reclamRequest;
@@ -42,12 +44,17 @@ class ReclamController extends Controller
      */
     public function store(reclamRequest $request)
     {
+        $user = Auth::user();
+        $current_id = $user->id;
+
+        $current_etud = Etudiant::where('MatrEtud','=', $current_id)->first();
+        $current_gr = $current_etud->Gr;
         $reclamation = new Reclamations();
-        $reclamation->MatrEtud = $request->input('etud');
-        $reclamation->GR = $request->input('gr');
+        //$reclamation->MatrEtud = $request->input('etud');
+        $reclamation->MatrEtud = $current_id;
+        $reclamation->GR = $current_gr;
         $reclamation->CodeMod = $request->input('mod');
         $reclamation->reclamation = $request->input('contenu');
-
 
         $reclamation->save();
 
