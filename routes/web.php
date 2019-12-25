@@ -14,9 +14,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/reclamations', 'ReclamController@index');
+/*Route::get('/reclamations', 'ReclamController@index');
 Route::get('/reclamations/create', 'ReclamController@create');
-Route::post('/reclamations', 'ReclamController@store');
+Route::post('/reclamations', 'ReclamController@store');*/
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

@@ -15,11 +15,6 @@ class ReclamController extends Controller
      *   @returnIlluminate\Http\Response
      * 
      */
-    public function __construct() {
-        $this->middleware('auth');
-    }
-
-
     public function index()
     {
         $listreclam = Reclamations::all();
@@ -42,19 +37,23 @@ class ReclamController extends Controller
      * @paramIlluminate\Http\Request  $request
      * @returnIlluminate\Http\Response
      */
-    public function store(reclamRequest $request)
+    public function store(Request $request)
     {
+        $request ->validate([
+            'mod' => 'required',
+            'contenu' => 'required',
+        ]);
+
         $user = Auth::user();
         $current_id = $user->id;
 
         $current_etud = Etudiant::where('MatrEtud','=', $current_id)->first();
         $current_gr = $current_etud->Gr;
         $reclamation = new Reclamations();
-        //$reclamation->MatrEtud = $request->input('etud');
         $reclamation->MatrEtud = $current_id;
         $reclamation->GR = $current_gr;
-        $reclamation->CodeMod = $request->input('mod');
-        $reclamation->reclamation = $request->input('contenu');
+        $reclamation->CodeMod = $request->mod;
+        $reclamation->reclamation = $request->contenu;
 
         $reclamation->save();
 
