@@ -44,11 +44,13 @@ class ReclamController extends Controller
             'contenu' => 'required',
         ]);
 
-        $user = Auth::user();
+        /*$user = Auth::user();
         $current_id = $user->id;
 
         $current_etud = Etudiant::where('MatrEtud','=', $current_id)->first();
-        $current_gr = $current_etud->Gr;
+        $current_gr = $current_etud->Gr;*/
+        $current_id = '2';
+        $current_gr = 9;
         $reclamation = new Reclamations();
         $reclamation->MatrEtud = $current_id;
         $reclamation->GR = $current_gr;
@@ -57,7 +59,7 @@ class ReclamController extends Controller
 
         $reclamation->save();
 
-        return redirect('reclamations');
+        return 'hello!';
     }
 
     /**
