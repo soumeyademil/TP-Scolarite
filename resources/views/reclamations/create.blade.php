@@ -19,7 +19,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                        <input type="submit" class="form-control btn btn-primary" value="Envoyer">
+                                        <input type="submit" id="envoyer" class="form-control btn btn-primary" value="Envoyer">
                                 </div>
                         </form>
                 </div>

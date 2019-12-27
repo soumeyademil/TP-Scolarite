@@ -44,22 +44,26 @@ class ReclamController extends Controller
             'contenu' => 'required',
         ]);
 
+        $message = 0;
         /*$user = Auth::user();
         $current_id = $user->id;
 
         $current_etud = Etudiant::where('MatrEtud','=', $current_id)->first();
         $current_gr = $current_etud->Gr;*/
-        $current_id = '2';
-        $current_gr = 9;
-        $reclamation = new Reclamations();
-        $reclamation->MatrEtud = $current_id;
-        $reclamation->GR = $current_gr;
-        $reclamation->CodeMod = $request->mod;
-        $reclamation->reclamation = $request->contenu;
+        try{
+            $current_id = '2';
+            $current_gr = 9;
+            $reclamation = new Reclamations();
+            $reclamation->MatrEtud = $current_id;
+            $reclamation->GR = $current_gr;
+            $reclamation->CodeMod = $request->mod;
+            $reclamation->reclamation = $request->contenu;
+            $message = $reclamation->save();
+        }
 
-        $reclamation->save();
-
-        return 'hello!';
+        finally {
+            echo '<h1 id ="message">'.$message.'</h1>';
+        }
     }
 
     /**
