@@ -18,5 +18,7 @@ use App\Reclamations;
     return $request->user();
 });*/
 
+Route::middleware('auth:api')->get('/user', 'UserController@AuthRouteAPI');
+
 Route::get('/reclamation', 'ReclamController@index');
 Route::post('/reclamation', 'ReclamController@store');

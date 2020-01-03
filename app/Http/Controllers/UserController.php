@@ -20,4 +20,8 @@ class UserController extends Controller
 
         return view('user.profile', ['user' => User::findOrFail($id)]);
     }
+
+    public function AuthRouteAPI(Request $request){
+        return $request->user();
+     }
 }
