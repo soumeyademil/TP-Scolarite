@@ -7,12 +7,15 @@ services:
       context: .
       dockerfile: Dockerfile
     image: digitalocean.com/php
-    container_name: ${APP_NAME}_app
+    container_name: app
     restart: unless-stopped
     tty: true
     environment:
       SERVICE_NAME: app
       SERVICE_TAGS: dev
+      DB_HOST: db
+      DB_NAME: ScolEsi
+      REDIS_HOST: cache
     working_dir: /var/www/app
     volumes:
       - ./:/var/www/app
@@ -23,7 +26,7 @@ services:
   #Nginx Service
   webserver:
     image: nginx:alpine
-    container_name: ${APP_NAME}_web
+    container_name: web
     restart: unless-stopped
     tty: true
     ports:
@@ -38,7 +41,7 @@ services:
   #MySQL Service
   db:
     image: mysql:5.7.22
-    container_name: ${APP_NAME}_db
+    container_name: db
     restart: unless-stopped
     tty: true
     ports:
